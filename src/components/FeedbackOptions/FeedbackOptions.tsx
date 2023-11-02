@@ -1,7 +1,15 @@
+import { FC } from 'react';
 import { Container, Button } from './FeedbackOptions.styled';
-import PropTypes from 'prop-types';
 
-const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+interface FeedbackOptionsProps {
+  options: string[];
+  onLeaveFeedback: (option: string) => void;
+}
+
+const FeedbackOptions: FC<FeedbackOptionsProps> = ({
+  options,
+  onLeaveFeedback,
+}) => {
   return (
     <Container>
       {options.map(option => (
@@ -15,11 +23,6 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       ))}
     </Container>
   );
-};
-
-FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
-  onLeaveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;

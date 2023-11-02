@@ -1,14 +1,14 @@
+import { FC } from 'react';
 import { Container, Text } from './Notification.styled';
-import PropTypes from 'prop-types';
 
-const Notification = ({ message }) => (
+interface NotificationProps {
+  message: string;
+}
+
+const Notification: FC<NotificationProps> = ({ message }) => (
   <Container>
     <Text>{message}</Text>
   </Container>
 );
-
-Notification.propTypes = {
-  message: PropTypes.string.isRequired,
-};
 
 export default Notification;

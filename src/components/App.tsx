@@ -1,7 +1,7 @@
 import FeedbackOptions from 'components/FeedbackOptions';
-import Statistics from 'components/Statistics/';
-import Section from './Section/';
-import Notification from './Notification/';
+import Statistics from 'components/Statistics';
+import Section from './Section';
+import Notification from './Notification';
 import { useState } from 'react';
 
 export const App = () => {
@@ -9,7 +9,7 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
-  const handleFeedback = value => {
+  const handleFeedback = (value: string) => {
     switch (value) {
       case 'good':
         setGood(state => state + 1);
@@ -35,7 +35,7 @@ export const App = () => {
 
   const totalFeedback = countTotalFeedback();
   const feedbackOptions = Object.keys({ good, neutral, bad });
-  const positiveFeedbackPercentage = countPositiveFeedbackPercentage();
+  const positiveFeedbackPercentage = Number(countPositiveFeedbackPercentage());
 
   return (
     <div>
